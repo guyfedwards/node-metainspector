@@ -303,6 +303,7 @@ MetaInspector.prototype.getAbsolutePath = function(href){
 MetaInspector.prototype.fetch = function(){
 	var _this = this;
 	var totalChunks = 0;
+	request.cookie('over18=1');
 	var r = request(_.assign({uri : this.url, gzip: true}, this.options), function(error, response, body){
 		if(!error && response.statusCode === 200){
 			_this.document = body;
